@@ -1,0 +1,167 @@
+/* 1. Latar Belakang & Tipografi Dasar */
+body {
+    font-family: 'inter', sans-serif;
+    background-color: #FFF7F3; /* pastel-cream */
+    overflow-x: hidden; /* Mencegah horizontal scroll */
+}
+
+/* 2. Animasi Latar Belakang Ambient (Pink -> Lavender -> Cream) */
+@keyframes ambient-background {
+    0%   { background-color: #FFF7F3; } /* cream */
+    33%  { background-color: #FFD5E5; } /* blush-pink */
+    66%  { background-color: #EAD9FF; } /* lavender */
+    100% { background-color: #FFF7F3; } /* cream */
+}
+body.animate-bg {
+    animation: ambient-background 25s infinite ease-in-out;
+}
+
+/* 3. Animasi Partikel Hati Mengambang (untuk Hero & Testimoni) */
+@keyframes float-heart {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-100vh) scale(0.8); opacity: 0; }
+}
+.floating-heart {
+    position: absolute;
+    left: 0;
+    bottom: -50px; /* Mulai dari bawah layar */
+    font-size: 20px;
+    color: #FF6B9A; /* rose-accent */
+    opacity: 0.6;
+    animation: float-heart 10s infinite ease-in;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 4. Animasi Huruf Judul Mengambang */
+@keyframes float-letter {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+.floating-letter {
+    display: inline-block;
+    animation: float-letter 3s infinite ease-in-out;
+}
+
+/* 5. Efek Ketik (Typing Effect) */
+.typing-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1.2em;
+    background-color: #FF6B9A;
+    animation: blink-cursor 0.7s infinite;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 6. Animasi Tombol Glow (Pulsing Border) */
+@keyframes button-glow {
+    0%, 100% { box-shadow: 0 0 10px #FF6B9A, 0 0 20px #FFD5E5; }
+    50% { box-shadow: 0 0 20px #FF6B9A, 0 0 30px #FFD5E5; }
+}
+.btn-glow {
+    animation: button-glow 3s infinite ease-in-out;
+}
+
+/* 7. Animasi Hover Service Card (Pulse Glow) */
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 107, 154, 0.4); /* Glow #FF6B9A */
+}
+.service-card {
+    transition: all 0.3s ease-in-out;
+}
+
+/* 8. Animasi Hover Gallery (Zoom & Overlay) */
+.gallery-item .gallery-hover-overlay {
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+.gallery-item:hover .gallery-hover-overlay {
+    opacity: 1;
+}
+.gallery-item img {
+    transition: all 0.4s ease-in-out;
+}
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* 9. Efek Confetti (Form Submit) */
+.confetti-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #FF6B9A;
+    opacity: 1;
+    transition: all 1s ease-out;
+    border-radius: 50%;
+}
+
+/* 10. Scroll Reveal Animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 11. Hover Trail (Sparkles) */
+.sparkle-trail {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #FF6B9A;
+    border-radius: 50%;
+    pointer-events: none; /* Penting! */
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease-out, transform 0.1s ease-out;
+    z-index: 9999;
+}
+
+/* 12. "Whisper Mode" Easter Egg */
+.whisper-quote {
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* 13. Hujan Hati (Footer) */
+.heart-rain-particle {
+    position: absolute;
+    top: -20px;
+    color: #FF6B9A;
+    font-size: 1.2rem;
+    animation: fall 5s linear infinite;
+    opacity: 0.7;
+    z-index: 10;
+}
+@keyframes fall {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* 14. Style Form Kustom DIHAPUS karena tidak berfungsi dengan CDN */
+/* .form-input-romantic { ... } */
+
+/* 15. Card Glass Kustom (dari demo) */
+.card-glass {
+    background: rgba(255, 255, 255, 0.4); /* Lebih transparan */
+    backdrop-filter: blur(15px); /* Blur lebih kuat */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Border lebih jelas */
+    border-radius: 1.25rem; /* Lebih bulat lagi */
+    box-shadow: 0 8px 32px 0 rgba(236, 72, 153, 0.15); /* Shadow glass */
+    transition: all 0.3s ease-in-out; /* Untuk efek hover */
+}
+.card-glass:hover {
+    transform: translateY(-5px); /* Sedikit naik saat hover */
+    box-shadow: 0 12px 48px 0 rgba(236, 72, 153, 0.25); /* Shadow lebih kuat */
+}
+
